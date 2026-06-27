@@ -4,7 +4,7 @@ import { MessageSquare, Share2, Globe, Mail, Droplet } from 'lucide-react';
 
 const Footer = () => {
   return (
-    <footer className="bg-luxury-white pt-32 pb-12">
+    <footer className="bg-luxury-white pt-16 md:pt-32 pb-12">
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-24">
           <div className="space-y-8 col-span-1 lg:col-span-1">
@@ -64,9 +64,9 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="pt-12 border-t border-black/5 flex flex-col md:row justify-between items-center gap-8 text-[10px] uppercase tracking-[0.3em] font-medium text-black/30">
+        <div className="pt-12 border-t border-black/5 flex flex-col md:flex-row justify-between items-center gap-6 md:gap-8 text-[10px] uppercase tracking-[0.3em] font-medium text-black/30 text-center md:text-left">
           <span>© 2026 AuraFlow Sanitaryware. All Rights Reserved.</span>
-          <div className="flex gap-8">
+          <div className="flex flex-wrap justify-center gap-4 sm:gap-8">
             <a href="#" className="hover:text-black transition-colors">Privacy Policy</a>
             <a href="#" className="hover:text-black transition-colors">Terms of Service</a>
             <a href="#" className="hover:text-black transition-colors">Sustainability Report</a>

@@ -27,13 +27,13 @@ const values = [
 
 const WellnessSection = () => {
   return (
-    <section id="technology" className="py-32 bg-luxury-black text-white relative overflow-hidden">
+    <section id="technology" className="py-16 md:py-32 bg-luxury-black text-white relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-luxury-gold/5 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/3" />
       
       <div className="container mx-auto px-6 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-24 items-center">
-          <div className="space-y-12">
+        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+          <div className="space-y-8 md:space-y-12">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -41,11 +41,11 @@ const WellnessSection = () => {
               viewport={{ once: true }}
             >
               <span className="text-luxury-gold uppercase tracking-[0.4em] text-xs font-bold mb-6 block">Innovation Hub</span>
-              <h2 className="text-5xl md:text-7xl font-outfit font-light tracking-tight leading-[1.1] mb-10">
+              <h2 className="text-4xl sm:text-5xl md:text-7xl font-outfit font-light tracking-tight leading-[1.1] mb-6 md:mb-10">
                 Crafting Wellness <br /> 
                 <span className="italic">Through Engineering.</span>
               </h2>
-              <p className="text-xl text-white/50 max-w-lg leading-relaxed">
+              <p className="text-lg md:text-xl text-white/50 max-w-lg leading-relaxed">
                 We don't just create fixtures; we design environments where water, light, and stone coexist in perfect harmony. Every curve is calculated for comfort.
               </p>
             </motion.div>
@@ -89,9 +89,9 @@ const WellnessSection = () => {
             <motion.div
               animate={{ rotate: 360 }}
               transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-              className="absolute -bottom-10 -left-10 w-40 h-40 bg-luxury-gold flex items-center justify-center rounded-full text-black p-4 text-center"
+              className="absolute -bottom-6 -left-4 sm:-bottom-10 sm:-left-10 w-28 h-28 sm:w-40 sm:h-40 bg-luxury-gold flex items-center justify-center rounded-full text-black p-2 sm:p-4 text-center z-20"
             >
-              <div className="text-[10px] font-bold uppercase tracking-widest">
+              <div className="text-[7px] sm:text-[10px] font-bold uppercase tracking-widest leading-normal">
                 Sustainable Luxury Certified 2026
               </div>
             </motion.div>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { ShoppingBag, Menu, X, Droplet } from 'lucide-react';
 
 const Navbar = () => {
@@ -24,7 +24,7 @@ const Navbar = () => {
         <motion.div 
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
-          className="flex items-center gap-2 cursor-pointer"
+          className="flex items-center gap-2 cursor-pointer relative z-50"
         >
           <Droplet className="w-8 h-8 text-luxury-gold" />
           <span className="text-2xl font-outfit font-bold tracking-tighter uppercase">
@@ -48,7 +48,7 @@ const Navbar = () => {
           ))}
         </div>
 
-        <div className="flex items-center gap-6">
+        <div className="flex items-center gap-6 relative z-50">
           <motion.button 
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -57,26 +57,40 @@ const Navbar = () => {
             <ShoppingBag className="w-6 h-6" />
           </motion.button>
           <button 
-            className="md:hidden"
+            className="md:hidden p-2 hover:bg-black/5 rounded-full transition-colors"
             onClick={() => setIsOpen(!isOpen)}
           >
-            {isOpen ? <X /> : <Menu />}
+            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
       </div>
 
       {/* Mobile Menu */}
-      <motion.div 
-        initial={{ height: 0, opacity: 0 }}
-        animate={{ height: isOpen ? '100vh' : 0, opacity: isOpen ? 1 : 0 }}
-        className="md:hidden absolute top-full left-0 w-full bg-white flex flex-col items-center justify-center gap-8 overflow-hidden"
-      >
-        {['Collections', 'Showroom', 'Technology', 'About'].map((item) => (
-          <a key={item} href="#" className="text-2xl font-bold font-outfit uppercase tracking-widest" onClick={() => setIsOpen(false)}>
-            {item}
-          </a>
-        ))}
-      </motion.div>
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div 
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="md:hidden fixed inset-0 bg-luxury-white/98 backdrop-blur-md flex flex-col items-center justify-center gap-8 z-40"
+          >
+            {['Collections', 'Showroom', 'Technology', 'About'].map((item, idx) => (
+              <motion.a 
+                key={item} 
+                href={`#${item.toLowerCase()}`} 
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: idx * 0.08, duration: 0.3 }}
+                className="text-3xl font-light font-outfit uppercase tracking-widest hover:text-luxury-gold transition-colors" 
+                onClick={() => setIsOpen(false)}
+              >
+                {item}
+              </motion.a>
+            ))}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 };

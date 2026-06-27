@@ -14,14 +14,14 @@ const collections = [
 
 const ProductCards = () => {
   return (
-    <section id="collections" className="py-32 bg-white">
+    <section id="collections" className="py-16 md:py-32 bg-white">
       <div className="container mx-auto px-6">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 md:mb-20 gap-8">
           <div className="max-w-xl">
-            <h2 className="text-4xl md:text-6xl font-outfit font-bold tracking-tight mb-8">Curated Collections</h2>
-            <p className="text-lg text-black/50">Each piece is a dialogue between form and function, crafted to transform daily rituals into moments of sublime elevation.</p>
+            <h2 className="text-3xl sm:text-4xl md:text-6xl font-outfit font-bold tracking-tight mb-4 md:mb-8">Curated Collections</h2>
+            <p className="text-base md:text-lg text-black/50">Each piece is a dialogue between form and function, crafted to transform daily rituals into moments of sublime elevation.</p>
           </div>
-          <button className="text-sm uppercase tracking-widest border-b border-black pb-2 hover:text-luxury-gold hover:border-luxury-gold transition-colors">
+          <button className="text-sm uppercase tracking-widest border-b border-black pb-2 hover:text-luxury-gold hover:border-luxury-gold transition-colors self-start md:self-auto">
             View All Series
           </button>
         </div>

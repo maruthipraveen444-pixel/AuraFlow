@@ -85,7 +85,7 @@ const LiquidCarousel = () => {
   };
 
   return (
-    <section className="relative h-screen w-full flex items-center overflow-hidden bg-luxury-cream py-24">
+    <section className="relative h-auto min-h-screen w-full flex items-center overflow-hidden bg-luxury-cream py-16 md:py-24">
       {/* Background SVG Morph */}
       <div className="absolute inset-0 pointer-events-none z-0">
         <svg 
@@ -103,7 +103,7 @@ const LiquidCarousel = () => {
       </div>
 
       <div className="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center z-10">
-        <div className="space-y-8 order-2 md:order-1">
+        <div className="space-y-6 md:space-y-8 order-2 md:order-1">
           <AnimatePresence mode="wait">
             <motion.div
               key={products[index].id}
@@ -113,26 +113,26 @@ const LiquidCarousel = () => {
               transition={{ duration: 0.8, ease: "circOut" }}
             >
               <h3 className="text-luxury-gold tracking-[0.4em] uppercase text-xs mb-2">{products[index].title}</h3>
-              <h2 className="text-7xl md:text-9xl font-outfit font-bold tracking-tighter mb-6">{products[index].name}</h2>
-              <p className="text-xl text-black/60 max-w-md leading-relaxed mb-10">
+              <h2 className="text-5xl sm:text-7xl md:text-9xl font-outfit font-bold tracking-tighter mb-4 md:mb-6">{products[index].name}</h2>
+              <p className="text-lg md:text-xl text-black/60 max-w-md leading-relaxed mb-6 md:mb-10">
                 {products[index].description}
               </p>
               
-              <div className="flex items-center gap-8">
+              <div className="flex items-center gap-4 md:gap-8">
                 <button 
                   onClick={handlePrev}
-                  className="w-16 h-16 rounded-full border border-black/10 flex items-center justify-center hover:bg-black hover:text-white transition-all group"
+                  className="w-12 h-12 md:w-16 md:h-16 rounded-full border border-black/10 flex items-center justify-center hover:bg-black hover:text-white transition-all group text-sm md:text-base"
                 >
                   <span className="transform group-hover:-translate-x-1 transition-transform">←</span>
                 </button>
                 <button 
                   onClick={handleNext}
-                  className="w-16 h-16 rounded-full border border-black/10 flex items-center justify-center hover:bg-black hover:text-white transition-all group"
+                  className="w-12 h-12 md:w-16 md:h-16 rounded-full border border-black/10 flex items-center justify-center hover:bg-black hover:text-white transition-all group text-sm md:text-base"
                 >
                   <span className="transform group-hover:translate-x-1 transition-transform">→</span>
                 </button>
                 <div className="h-[1px] flex-grow bg-black/10 hidden md:block" />
-                <span className="text-2xl font-light italic">
+                <span className="text-xl md:text-2xl font-light italic">
                   0{index + 1} / 0{products.length}
                 </span>
               </div>
@@ -140,7 +140,7 @@ const LiquidCarousel = () => {
           </AnimatePresence>
         </div>
 
-        <div className="relative h-[60vh] md:h-[80vh] flex items-center justify-center order-1 md:order-2">
+        <div className="relative h-[35vh] md:h-[80vh] w-full flex items-center justify-center order-1 md:order-2">
           <AnimatePresence mode="wait">
             <motion.div
               key={products[index].id}
@@ -148,20 +148,20 @@ const LiquidCarousel = () => {
               animate={{ opacity: 1, scale: 1, rotate: 0 }}
               exit={{ opacity: 0, scale: 1.2, rotate: 5 }}
               transition={{ duration: 0.8, ease: "circOut" }}
-              className="relative w-full h-full"
+              className="relative w-full h-full flex items-center justify-center"
             >
               <img 
                 src={products[index].image} 
                 alt={products[index].name} 
-                className="w-full h-full object-contain drop-shadow-2xl"
+                className="w-full h-full object-contain drop-shadow-2xl max-h-[30vh] md:max-h-full"
               />
               {/* Product floating decoration */}
               <motion.div 
-                animate={{ y: [0, -20, 0] }}
+                animate={{ y: [0, -10, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute -top-10 -right-10 w-32 h-32 rounded-full border border-luxury-gold/20 flex items-center justify-center backdrop-blur-sm"
+                className="absolute -top-4 -right-4 md:-top-10 md:-right-10 w-20 h-20 md:w-32 md:h-32 rounded-full border border-luxury-gold/20 flex items-center justify-center backdrop-blur-sm"
               >
-                <span className="text-[10px] uppercase tracking-widest text-luxury-gold text-center px-4">Limited Edition</span>
+                <span className="text-[8px] md:text-[10px] uppercase tracking-widest text-luxury-gold text-center px-2 md:px-4">Limited Edition</span>
               </motion.div>
             </motion.div>
           </AnimatePresence>

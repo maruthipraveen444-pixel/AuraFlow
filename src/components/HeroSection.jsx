@@ -45,7 +45,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.7 }}
-            className="text-6xl md:text-9xl font-outfit font-light tracking-tighter leading-none mb-10 text-balance"
+            className="text-5xl sm:text-7xl md:text-9xl font-outfit font-light tracking-tighter leading-none mb-10 text-balance"
           >
             Architectural <br /> 
             <span className="italic font-normal">Sanctuary</span>
@@ -60,7 +60,7 @@ const HeroSection = () => {
               Explore Collection
               <span className="inline-block ml-2 transition-transform group-hover:translate-x-1">→</span>
             </button>
-            <div className="mt-20 flex flex-col items-center gap-2">
+            <div className="mt-10 md:mt-20 flex flex-col items-center gap-2">
               <span className="text-[10px] uppercase tracking-[0.3em] opacity-50">Scroll to Explore</span>
               <div className="w-[1px] h-12 bg-black/20 relative overflow-hidden">
                 <motion.div 
